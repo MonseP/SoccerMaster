@@ -1,0 +1,16 @@
+.selected{
+    background-color: darkorange;
+    color:blue;
+}
+
+.logo {
+    width: 400px;
+    height: 75px;
+}
+
+.logo-dos{
+    background-color:white;
+    width: 160px;
+    height: 40px;
+
+}

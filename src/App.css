@@ -1,0 +1,36 @@
+.App {
+  /*text-align: center;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  /*min-height: 100vh;*/
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.routes-container{
+  width: 97vw;
+  padding-top :70px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

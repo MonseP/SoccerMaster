@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "liga-de-dentistas",
+    "staging": "liga-de-dentistas"
+  }
+}

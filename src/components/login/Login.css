@@ -1,0 +1,35 @@
+.back-login{
+
+  font-family: 'Montserrat', sans-serif;
+  width:100%;
+  height:100vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url('https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+
+
+.login{
+width:33%;
+    background-color: white;
+    opacity: 0.97;
+    position: relative;
+    left:250px;
+}
+
+.login h2{
+
+    color: black;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.back-login h1{
+letter-spacing: 2px;
+text-align:center;
+position: absolute;
+    left:110px;
+top: 40%;
+font-size:35px;
+ color: white;
+}

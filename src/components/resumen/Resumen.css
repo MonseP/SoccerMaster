@@ -1,0 +1,22 @@
+.card{
+  position: relative;
+  top:70px;
+  left: 70px;
+}
+.card h3 {
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.card2 {
+  top:70px;
+position: relative;
+  font-size: 30px;
+  left: 100px;
+  letter-spacing: 1px;
+}
+
+.card2 h3 {
+  font-size: 30px;
+  letter-spacing: 1px;
+}

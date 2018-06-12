@@ -1,0 +1,17 @@
+.registro h2 {
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #00bcd4 ;
+
+}
+
+.register{
+
+  position: relative;
+  top: 70px;
+  border-style: solid;
+  padding: 10px;
+border: 1px solid #eeeeee;
+}

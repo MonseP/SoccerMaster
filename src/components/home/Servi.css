@@ -1,0 +1,67 @@
+.miel{
+    width:100%;
+    height:250px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-image: url('./men.jpeg');
+
+
+}
+.cover{
+    background-color: rgba(0,0,0,0);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.cover h3{
+    color:white;
+    font-size: 450%;
+    margin: 0;
+    font-weight: 200%;
+}
+.cover p{
+    color:white;
+    font-size: 150%;
+    margin: 0;
+}
+.miel_present{
+    width:80%;
+    margin: 80px auto;
+}
+.card_miel{
+    box-shadow: 4px 4px 14px 0px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    padding: 2em;
+    width:400px;
+    min-width: 400px;
+    position: relative;
+    left: -250px;
+    display: inline-block;
+    margin:0 auto;
+    -webkit-transform: translate(0%, 30%);
+    transform: translate(30%, 30%);
+    background-color: #fff;
+    text-align: justify;
+    letter-spacing: 1px;
+
+    line-height: 1.5;
+    font-size: 15px;
+
+}
+.box_miel{
+    /*width:400px;*/
+    /*flex-grow: 1;*/
+    /*text-align: center;*/
+}
+.miel_img{
+    width:550px;
+    height: 250px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
+
+
+}

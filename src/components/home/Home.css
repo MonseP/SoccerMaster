@@ -1,0 +1,395 @@
+/*HomeDisplay*/
+.todo-home{
+
+
+}
+.slide{
+    width: 100%;
+    padding-bottom: 110px;
+    height:100vh;
+}
+
+#bot{
+  height: 150px;
+}
+
+#bg-video{
+    position: fixed;
+    top:-150px;
+    left:0;
+    margin: 0;
+    min-width: 100%;
+    height:120%;
+    z-index: -1000;
+}
+.cover{
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,.3);
+}
+.home_data{
+    padding-top: 180px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+.home_data img{
+    width:225px;
+}
+
+.home_data h3{
+    font-size: 18px;
+    margin-top: 7%;
+    margin-bottom: 30px;
+    color:white;
+}
+.home_data p{
+    font-size: 13px;
+    color:white;
+    margin-top: 30px;
+
+}
+.line_white{
+    width:100px;
+    margin: 0 auto;
+    border: none;
+    background-color: white;
+    height:2px;
+    border-radius: 1px;
+
+}
+.btn_home{
+    padding: 5px 24px;
+    background-color: transparent;
+    border: .5px solid white;
+    color:white;
+    margin-top: 60px;
+}
+a{
+    color: inherit;
+}
+.fa_home{
+    color:white;
+    margin: 40px 0;
+}
+/*#Nosotros*/
+.nosotros{
+    background-color: white;
+    padding: 4rem 0 6rem 0;
+}
+.nos_text{
+    width:50%;
+    margin: 0 auto;
+    text-align: center;
+    color:#242C3D;
+    font-family: 'GT Walsheim','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.nos_text h2{
+    font-size: 3.5rem;
+    line-height: 2.7rem;
+    margin-bottom: 30px;
+    color:rgba(0,0,0,.85)
+
+}
+.nos_text p{
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin-bottom: 2.5rem;
+    color:rgba(0,0,0,.65)
+}
+.btn_explore{
+    color: #323232;
+    background-color: transparent;
+    border: 1px solid #AAA;
+    padding: .8rem 2.5rem;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    transition: all 1s ease;
+}
+.btn_explore:hover{
+    background-color: #2098a6;
+    color:white;
+    border:1px solid #2098a6;
+}
+/*Relevantes*/
+
+.relevantes{
+    width: 100%;
+    background-color: rgb(244, 242, 242);
+    /*background-color: white;*/
+    padding-top: 150px;
+}
+.rel_box{
+    width:80%;
+    margin: 0 auto;
+    height:500px;
+}
+.item{
+    display: flex;
+
+}
+.box_owl{
+    width:300px;
+    flex-grow: 1;
+}
+.box_owl h4{
+    font-size: 1rem;
+    line-height: 1.75rem;
+    letter-spacing: .1rem;
+}
+.box_owl h3{
+    font-size: 1.75rem;
+    line-height: 2.167rem;
+}
+.box_owl p{
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+.pad{
+    padding: 8% 4% ;
+}
+/*History*/
+.history{
+
+    width:105%;
+    margin-top:3px;
+    overflow: hidden;
+}
+.logo_history{
+    width:600px;
+}
+.card_history{
+    box-shadow: 4px 4px 14px 0px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    padding: 2em;
+    width: 50%;
+    min-width: 400px;
+    position: relative;
+    display: inline-block;
+    margin-left: 25%;
+    -webkit-transform: translate(0%, 30%);
+    transform: translate(30%, 30%);
+    background-color: #fff;
+    text-align: left;
+    z-index: 999;
+    line-height: 1.5;
+    font-size: 15px;
+
+}
+.card_history h3{
+    color:rgba(0,0,0,.85)
+}
+.card_history p{
+    color:rgba(0,0,0,.65)
+}
+.coffe_img{
+    width:550px;
+}
+
+
+.publi{
+    background-image: url('./nina.jpeg');
+    height:270px;
+    width:105%;
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.publi ::placeholder { color: white; }
+
+.publi h3{
+    color:white;
+    font-size: 350%;
+    margin: 0;
+}
+.publi p {
+    color:white;
+    font-size: 120%;
+    margin: 0;
+}
+.box_publi{
+    background-color: white;
+}
+.btn_mas{
+     color: white;
+     background-color: transparent;
+     border: 1px solid white;
+     padding: .5rem 1.5rem;
+     cursor: pointer;
+     font-weight: 700;
+     font-size: .5rem;
+     text-transform: uppercase;
+     letter-spacing: .1rem;
+     transition: all 1s ease;
+    outline: none;
+    margin: 20px;
+ }
+.btn_mas:hover{
+    background-color: white;
+    color:#323232;
+}
+
+.div_input{
+    color:white;
+    width:160px;
+    border:1px solid white;
+    height:30px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    padding:0 1%;
+}
+.inp{
+    border: none;
+    background-color: transparent;
+
+}
+.div_input input:active{
+    color:inherit;
+}
+.bflex{
+    width:70%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.partner{
+    width:250px;
+    flex-grow: 1;
+}
+.partner img{
+    width:120px;
+    height:auto;
+}
+.revista{
+  letter-spacing: 2px;
+  font-size: 18px;
+
+  width:104%;
+text-align: center;
+background-color: white;
+   background-size: cover;
+    padding-top: 60px;
+    margin-top: 100px;
+
+}
+
+.revista-imagen{
+  width: 150px;
+  height: 150px;
+
+}
+
+.parrafo{
+
+  padding-top: 10px;
+   padding-right: 30px;
+   padding-bottom: 50px;
+   padding-left: 80px;
+   animation-duration: 6s;
+     animation-name: slidein;
+
+}
+.title{
+  animation-duration: 6s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.process{
+
+    width:80%;
+    margin: 0 auto;
+    margin-top:-50px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.uno, .dos, .tres{
+
+    flex-grow: 1;
+    width:100%;
+    height:100px;
+    margin: 0 15px;
+    margin-bottom: 50px;
+    padding-top: 7%;
+}
+.uno{
+
+    border:1px dotted #5b949a;
+
+}
+.uno p{
+
+      margin-top:-60px;
+}
+.uno h3{
+
+    margin-top:-80px;
+
+}
+
+
+@media only screen and (min-width: 320px)  and (max-width: 736px)
+{
+  .revista{
+    letter-spacing: 2px;
+    font-size: 12px;
+  width:30%;
+  text-align: center;
+  background-color: white;
+     background-size: cover;
+      padding-top: 60px;
+      margin-top: 100px;
+      margin-left: 350px;
+
+  }
+
+  .revista-imagen{
+    width: 50px;
+    height: 50px;
+
+  }
+
+
+  .parrafo{
+
+    padding-top: 10px;
+     padding-right: 30px;
+     padding-bottom: 50px;
+
+  }
+
+  .history{
+
+      width:50%;
+      height: 1px;
+      margin-top:3px;
+      overflow: hidden;
+  }
+  .logo_history{
+      width:600px;
+  }
+
+
+}
