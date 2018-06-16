@@ -1,10 +1,11 @@
 import React from 'react';
 import {TextField} from 'material-ui';
+import './Equipos.css';
 
 const FormularioEditar = (props) => {
     console.log(props.ingreso);
     return (
-        <div>
+        <div className="formulario-tres">
             <form>
                 {props.data.map((ingreso) => {
                     if(ingreso.label === 'key'){

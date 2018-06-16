@@ -5,16 +5,16 @@ import {
 } from 'material-ui';
 import {Link} from 'react-router-dom';
 
-const IngresoListRow = ({ingreso}) => (
+const EquipoListRow = ({ingreso}) => (
     <TableRow key={ingreso.key}>
         <TableRowColumn>
-            <Link to={"/ingresos/"+ingreso.key}>
+            <Link to={"/equipos-rey/"+ingreso.key}>
                 {ingreso.key}
             </Link>
             </TableRowColumn>
-        <TableRowColumn>$ {ingreso.cantidad}</TableRowColumn>
-        <TableRowColumn>{ingreso.description}</TableRowColumn>
+        <TableRowColumn>{ingreso.nombre}</TableRowColumn>
+        <TableRowColumn>{ingreso.logo}</TableRowColumn>
     </TableRow>
 );
 
-export default IngresoListRow;
+export default EquipoListRow;

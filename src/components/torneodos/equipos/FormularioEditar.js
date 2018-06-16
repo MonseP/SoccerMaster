@@ -1,21 +1,22 @@
 import React from 'react';
 import {TextField} from 'material-ui';
+import './Equipos.css';
 
 const FormularioEditar = (props) => {
-    console.log(props.gasto);
+    console.log(props.equipo);
     return (
-        <div>
+        <div className="formulario-tres">
             <form>
-                {props.data.map((gasto) => {
-                    if(gasto.label === 'key'){
+                {props.data.map((equipo) => {
+                    if(equipo.label === 'key'){
                         return null;
                     }
                     return <TextField
                         style={textFieldStyle}
-                        key={gasto.label}
-                        floatingLabelText={gasto.label}
-                        name={gasto.label}
-                        value={props.gasto[gasto.label]}
+                        key={equipo.label}
+                        floatingLabelText={equipo.label}
+                        name={equipo.label}
+                        value={props.equipo[equipo.label]}
                         onChange={props.onChange}
                     />
                 })}

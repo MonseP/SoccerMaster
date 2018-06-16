@@ -11,7 +11,11 @@ class TorneoForm extends Component{
 
     render(){
 
+
+
         const {newItem} = this.props;
+
+
         return(
             <div className="Form-ingreso">
                 <DatePicker
@@ -42,6 +46,8 @@ class TorneoForm extends Component{
                     floatingLabelText="Descripción de los partidos"
                     onChange={this.props.onChange}
                 />
+
+
 
 
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import {ListItem, Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui';
-import {FontIcon,Card,CardHeader,CardText} from 'material-ui';
-import {blue500, red500, greenA200} from 'material-ui/styles/colors';
+import './Equipos.css';
 
 const iconStyles = {
     marginRight: 0
@@ -19,25 +18,25 @@ function FirstLetterInMayus(string){
 const ListaDetalle = (props) => {
 
     return (
-        <div>
+        <div className="formulario-dos">
             <h2 style={titleStyle}>{props.title}</h2>
             <Table selectable={false}>
                 <TableHeader displaySelectAll={false}>
                     <TableHeaderColumn>Nombre</TableHeaderColumn>
-                    <TableHeaderColumn>Descripcion</TableHeaderColumn>
+                    <TableHeaderColumn>Descripción</TableHeaderColumn>
                 </TableHeader>
                 <TableBody displayRowCheckbox={false}>
                     {
-                        props.data.map( ingreso => {
-                            if(ingreso.label === 'key'){
+                        props.data.map(equipo => {
+                            if(equipo.label === 'key'){
                                 return null;
                             }
                             //return<ListItem key={ingreso.label}>{ingreso.label} : {ingreso.value}</ListItem>
-                            const label = FirstLetterInMayus(ingreso.label);
+                            const label = FirstLetterInMayus(equipo.label);
                             return (
-                                <TableRow key={ingreso.label}>
+                                <TableRow key={equipo.label}>
                                     <TableRowColumn>{label}</TableRowColumn>
-                                    <TableRowColumn>{ingreso.value}</TableRowColumn>
+                                    <TableRowColumn>{equipo.value}</TableRowColumn>
                                 </TableRow>
                             )
                         })

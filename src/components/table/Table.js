@@ -93,7 +93,7 @@ const columns = [
 const borrarItem = (r) => {
     console.log(r);
     let updates = {};
-    updates['/ingresos/' + r.key] = null;
+    updates['/equipos/' + r.key] = null;
     firebase.database().ref().update(updates);
     message.warning("Se ha borrado el ingreso");
 

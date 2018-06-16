@@ -2,7 +2,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as gastoActions from '../../actions/gastoActions';
+import * as equipoActions from '../../../actions/equipoActions';
 import ListaDetalle from "./ListaDetalle";
 import { FlatButton, FloatingActionButton} from 'material-ui';
 import toastr from 'toastr';
@@ -13,24 +13,24 @@ const buttonStyle = {
     margin: '20px 0px'
 };
 
-class ManageGastoPage extends React.Component {
+class ManageEquipoPage extends React.Component {
 
     state = {
         edit: false,
-        gasto:  {},
+        equipo:  {},
         errors:{}
     };
 
 
     deleteItem = () => {
         debugger;
-        const response = window.confirm('Seguro');
+        const response = window.confirm('¿Está seguro?');
         if(response){
-            const gastoForRemoving = Object.assign({},this.props.gasto);
-            this.props.actions.deleteGasto(gastoForRemoving)
+            const equipoForRemoving = Object.assign({},this.props.equipo);
+            this.props.actions.deleteEquipo(equipoForRemoving)
                 .then( r => {
                     toastr.success('Se ha eliminado');
-                    this.props.history.push('/gastos');
+                    this.props.history.push('/equiposamerica');
                 }).catch( e => {
                     console.log(e);
             });
@@ -38,9 +38,9 @@ class ManageGastoPage extends React.Component {
 
     };
 
-    editGasto = () => {
-        const gastoCopy = Object.assign({},this.state.gasto);
-        this.props.actions.saveGasto(gastoCopy)
+    editEquipo = () => {
+        const equipoCopy = Object.assign({},this.state.equipo);
+        this.props.actions.saveEquipo(equipoCopy)
             .then( (r) => {
                 toastr.success('Guardado');
                 console.log(r);
@@ -50,9 +50,9 @@ class ManageGastoPage extends React.Component {
 
     openForm = () => {
         // this.setState({openForm:true});
-        const gasto = Object.assign({},this.props.gasto);
-        this.setState({edit:true, gasto}, () => {
-            console.log(this.state.gasto);
+        const equipo = Object.assign({},this.props.equipo);
+        this.setState({edit:true, equipo}, () => {
+            console.log(this.state.equipo);
         } );
     };
 
@@ -63,41 +63,41 @@ class ManageGastoPage extends React.Component {
 
 
     handleChangeTipo = (event, index, value) => {
-        let gasto = Object.assign({}, this.state.gasto);
-        gasto.tipo = value;
-        this.setState({gasto});
+        let equipo = Object.assign({}, this.state.equipo);
+        equipo.tipo = value;
+        this.setState({equipo});
     };
 
-    updateGastoState = (e) => {
+    updateEquipoState = (e) => {
         const field = e.target.name;
-        let gasto = Object.assign({}, this.state.gasto);
-        gasto[field] = e.target.value;
-        this.setState({gasto});
+        let equipo = Object.assign({}, this.state.equipo);
+        equipo[field] = e.target.value;
+        this.setState({equipo});
     };
 
 
     render() {
         const {edit} = this.state;
-        let gastoToPrint = [];
+        let equipoToPrint = [];
 
-        const gasto = this.props.gasto;
-        for (let field in gasto) {
-            let newGasto = {};
-            newGasto.value = gasto[field];
-            newGasto.label = field;
-          gastoToPrint.push(newGasto);
+        const equipo = this.props.equipo;
+        for (let field in equipo) {
+            let newEquipo = {};
+            newEquipo.value = equipo[field];
+            newEquipo.label = field;
+            equipoToPrint.push(newEquipo);
         }
 
         return (
             <div style={{width:'70vw'}}>
                 { (!edit)
                     ?<ListaDetalle
-                        title="Detalle gasto"
-                        data={gastoToPrint}/>
+                        title="Detalle Ingreso"
+                        data={equipoToPrint}/>
                     :< FormularioEditar
-                        data={gastoToPrint}
-                        gasto={this.state.gasto}
-                        onChange={this.updateGastoState}
+                        data={equipoToPrint}
+                        equipo={this.state.equipo}
+                        onChange={this.updateEquipoState}
                         onChangleTipo={this.handleChangeTipo}/>
                 }
                 { !edit
@@ -112,7 +112,7 @@ class ManageGastoPage extends React.Component {
                         <FlatButton
                             label="Regresar"
                             primary={true}
-                            onClick={()=>this.props.history.push('/gastos')}
+                            onClick={()=>this.props.history.push('/equiposamerica')}
                             style={buttonStyle}
                         />
                     </div>
@@ -121,7 +121,7 @@ class ManageGastoPage extends React.Component {
                         <FlatButton
                             label="Guardar Cambios"
                             primary={true}
-                            onClick={this.editGasto}
+                            onClick={this.editEquipo}
                             style={buttonStyle}
                         />
                         <FlatButton
@@ -140,34 +140,11 @@ class ManageGastoPage extends React.Component {
                 </FloatingActionButton>
 
 
-                {/*<FlatButton*/}
-                    {/*label="Eliminar"*/}
-                    {/*primary={true}*/}
-                    {/*onClick={this.deleteItem}/>*/}
-
-                {/*<Dialog*/}
-                    {/*contentStyle={{width:350}}*/}
-                    {/*title="Editar Ingreso"*/}
-                    {/*actions={this.actions}*/}
-                    {/*modal={false}*/}
-                    {/*open={this.state.openForm}*/}
-                    {/*onRequestClose={this.closeForm}>*/}
-                    {/*<IngresoForm*/}
-                        {/*ingreso={this.state.ingresoMutable}*/}
-                        {/*allTipos={this.props.tipos}*/}
-                        {/*onChange={this.updateIngresoState}*/}
-                        {/*onChangeTipo={this.handleChangeTipo}*/}
-                    {/*/>*/}
-
-                {/*</Dialog>*/}
             </div>
         );
     }
 }
 
-//ManageIngresoPage.propTypes = {
-    // myProp: PropTypes.string.isRequired
-//};
 
 const fabstyle = {
     position:'fixed',
@@ -176,17 +153,17 @@ const fabstyle = {
 };
 
 function mapStateToProps(state, ownProps) {
-    console.log(state.gastos);
+    console.log(state.equipos);
 
     debugger;
-    const gastoIsolated = state.gastos.filter( (gasto) => {
-        if (gasto !== undefined){
-            return gasto.key === ownProps.match.params.key;
+    const equipoIsolated = state.equipos.filter( (equipo) => {
+        if (equipo !== undefined){
+            return equipo.key === ownProps.match.params.key;
         }
 
     });
 
-    const gasto = gastoIsolated[0];
+    const equipo = equipoIsolated[0];
     const tiposFormattedForDropdown = state.tipos.map(tipo=>{
         return {
             value:tipo.value,
@@ -195,15 +172,15 @@ function mapStateToProps(state, ownProps) {
     });
 
     return {
-        gasto: gasto,
+        equipo: equipo,
         tipos: tiposFormattedForDropdown
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(gastoActions, dispatch)
+        actions: bindActionCreators(equipoActions, dispatch)
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageGastoPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageEquipoPage);

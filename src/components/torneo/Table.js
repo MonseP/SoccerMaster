@@ -16,6 +16,7 @@ const columns = [
     },
 
 
+
     {
         title: 'Fecha',
         dataIndex: 'fecha',

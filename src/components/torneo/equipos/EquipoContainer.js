@@ -1,66 +1,68 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as gastoActions from '../../actions/gastoActions';
-import GastoList from './GastoList';
+import * as ingresoActions from '../../../actions/ingresoActions';
+import EquipoList from './EquipoList';
 import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import GastoForm from './GastoForm';
+import EquipoForm from './EquipoForm';
 import toastr from 'toastr';
 
 
-class GastoContainer extends React.Component {
+class EquipoContainer extends React.Component {
     state = {
         openForm: false,
-        gasto: {
-            description: '',
-            referencia: '',
-            cantidad: '',
-            tipo: '',
+        ingreso: {
+            nombre: '',
+            copas: '',
+            logo:'',
             captureDate: '',
-            subtipo: ''
+
         },
         controlledDate: {}
     };
 
+    componentDidMount () {
+        window.scroll(0, 0)
+
+        }
+
     handleChangeTipo = (event, index, value) => {
-        let gasto = Object.assign({}, this.state.gasto);
-        gasto.tipo = value;
-        this.setState({gasto});
+        let ingreso = Object.assign({}, this.state.ingreso);
+        ingreso.tipo = value;
+        this.setState({ingreso});
     };
 
     handleChangeCaptureDate = (name, date) => {
-        const gasto = this.state.gasto;
-        gasto.captureDate = date.toString();
+        const ingreso = this.state.ingreso;
+        ingreso.captureDate = date.toString();
         this.setState({
-            gasto,
+            ingreso,
             controlledDate: date
         });
     };
 
-    updateGastoState = (e) => {
+    updateIngresoState = (e) => {
         const field = e.target.name;
-        let gasto = Object.assign({}, this.state.gasto);
-        gasto[field] = e.target.value;
-        this.setState({gasto});
+        let ingreso = Object.assign({}, this.state.ingreso);
+        ingreso[field] = e.target.value;
+        this.setState({ingreso});
     };
 
     saveItem = () => {
         debugger;
-        const gastoCopy = Object.assign({},this.state.gasto);
-        this.props.actions.saveGasto(gastoCopy)
+        const ingresoCopy = Object.assign({},this.state.ingreso);
+        this.props.actions.saveIngreso(ingresoCopy)
             .then( (r) => {
                 toastr.success('Guardado');
                 console.log(r);
-                const newGasto = {
-                    description: '',
-                        cantidad: '',
-                        tipo: '',
-                        captureDate: '',
-                        referencia: '',
-                        subtipo: ''
+                const newIngreso = {
+                    nombre: '',
+                    copas: '',
+                    logo:'',
+                    captureDate: '',
                 };
-                this.setState({gasto:newGasto});
+                this.setState({ingreso:newIngreso});
             }).catch(e=>console.error(e));
         this.closeForm();
     };
@@ -83,10 +85,10 @@ class GastoContainer extends React.Component {
     };
 
     render() {
-        const {gastos} = this.props;
+        const {ingresos} = this.props;
         return (
-            <div style={gastoContainerStyle}>
-                <GastoList gastos={gastos} />
+            <div style={ingresoContainerStyle}>
+                <EquipoList ingresos={ingresos} />
                 <FloatingActionButton
                     style={fabstyle}
                     onClick={this.openForm}>
@@ -94,16 +96,16 @@ class GastoContainer extends React.Component {
                 </FloatingActionButton>
                 <Dialog
                     contentStyle={{width:350}}
-                    title="Agregar gasto"
+                    title="Agregar Ingreso"
                     actions={this.actions}
                     modal={false}
                     open={this.state.openForm}
                     onRequestClose={this.closeForm}>
-                    <GastoForm
-                        gasto={this.state.gasto}
+                    <EquipoForm
+                        ingreso={this.state.ingreso}
                         controlledDate={this.state.controlledDate}
                         allTipos={this.props.tipos}
-                        onChange={this.updateGastoState}
+                        onChange={this.updateIngresoState}
                         onChangeTipo={this.handleChangeTipo}
                         onChangeDate={this.handleChangeCaptureDate}
                     />
@@ -121,11 +123,11 @@ const fabstyle = {
   bottom: 15
 };
 
-const gastoContainerStyle = {
+const ingresoContainerStyle = {
     width: '85vw'
 };
 
-GastoContainer.propTypes = {
+EquipoContainer.propTypes = {
     // myProp: PropTypes.string.isRequired
 };
 
@@ -137,15 +139,15 @@ function mapStateToProps(state, ownProps) {
         }
     });
     return {
-        gastos: state.gastos,
+        ingresos: state.ingresos,
         tipos: tiposFormattedForDropdown
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(gastoActions, dispatch)
+        actions: bindActionCreators(ingresoActions, dispatch)
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GastoContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(EquipoContainer);

@@ -1,66 +1,68 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as ingresoActions from '../../actions/ingresoActions';
-import IngresoList from './IngresoList';
+import * as equipoActions from '../../../actions/equipoActions';
+import EquipoList from './EquipoList';
 import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import IngresoForm from './IngresoForm';
+import EquipoForm from './EquipoForm';
 import toastr from 'toastr';
 
 
-class IngresoContainer extends React.Component {
+class EquipoContainer extends React.Component {
     state = {
         openForm: false,
-        ingreso: {
-            description: '',
-            referencia: '',
-            cantidad: '',
-            tipo: '',
+        equipo: {
+            nombre: '',
+            copas: '',
+            logo:'',
             captureDate: '',
-            subtipo: ''
+
         },
         controlledDate: {}
     };
 
+    componentDidMount () {
+        window.scroll(0, 0)
+
+        }
+
     handleChangeTipo = (event, index, value) => {
-        let ingreso = Object.assign({}, this.state.ingreso);
-        ingreso.tipo = value;
-        this.setState({ingreso});
+        let equipo = Object.assign({}, this.state.equipo);
+        equipo.tipo = value;
+        this.setState({equipo});
     };
 
     handleChangeCaptureDate = (name, date) => {
-        const ingreso = this.state.ingreso;
-        ingreso.captureDate = date.toString();
+        const equipo = this.state.equipo;
+        equipo.captureDate = date.toString();
         this.setState({
-            ingreso,
+            equipo,
             controlledDate: date
         });
     };
 
-    updateIngresoState = (e) => {
+    updateEquipoState = (e) => {
         const field = e.target.name;
-        let ingreso = Object.assign({}, this.state.ingreso);
-        ingreso[field] = e.target.value;
-        this.setState({ingreso});
+        let equipo = Object.assign({}, this.state.equipo);
+        equipo[field] = e.target.value;
+        this.setState({equipo});
     };
 
     saveItem = () => {
         debugger;
-        const ingresoCopy = Object.assign({},this.state.ingreso);
-        this.props.actions.saveIngreso(ingresoCopy)
+        const equipoCopy = Object.assign({},this.state.equipo);
+        this.props.actions.saveEquipo(equipoCopy)
             .then( (r) => {
                 toastr.success('Guardado');
                 console.log(r);
-                const newIngreso = {
-                    description: '',
-                        cantidad: '',
-                        tipo: '',
-                        captureDate: '',
-                        referencia: '',
-                        subtipo: ''
+                const newEquipo = {
+                    nombre: '',
+                    copas: '',
+                    logo:'',
+                    captureDate: '',
                 };
-                this.setState({ingreso:newIngreso});
+                this.setState({equipo:newEquipo});
             }).catch(e=>console.error(e));
         this.closeForm();
     };
@@ -83,10 +85,10 @@ class IngresoContainer extends React.Component {
     };
 
     render() {
-        const {ingresos} = this.props;
+        const {equipos} = this.props;
         return (
             <div style={ingresoContainerStyle}>
-                <IngresoList ingresos={ingresos} />
+                <EquipoList equipos={equipos} />
                 <FloatingActionButton
                     style={fabstyle}
                     onClick={this.openForm}>
@@ -99,11 +101,11 @@ class IngresoContainer extends React.Component {
                     modal={false}
                     open={this.state.openForm}
                     onRequestClose={this.closeForm}>
-                    <IngresoForm
-                        ingreso={this.state.ingreso}
+                    <EquipoForm
+                        equipo={this.state.equipo}
                         controlledDate={this.state.controlledDate}
                         allTipos={this.props.tipos}
-                        onChange={this.updateIngresoState}
+                        onChange={this.updateEquipoState}
                         onChangeTipo={this.handleChangeTipo}
                         onChangeDate={this.handleChangeCaptureDate}
                     />
@@ -125,7 +127,7 @@ const ingresoContainerStyle = {
     width: '85vw'
 };
 
-IngresoContainer.propTypes = {
+EquipoContainer.propTypes = {
     // myProp: PropTypes.string.isRequired
 };
 
@@ -137,15 +139,15 @@ function mapStateToProps(state, ownProps) {
         }
     });
     return {
-        ingresos: state.ingresos,
+        equipos: state.equipos,
         tipos: tiposFormattedForDropdown
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(ingresoActions, dispatch)
+        actions: bindActionCreators(equipoActions, dispatch)
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(IngresoContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(EquipoContainer);

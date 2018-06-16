@@ -1,6 +1,6 @@
 import React from 'react';
-import IngresoListRow from './IngresoListRow';
-import './Ingresos.css';
+import EquipoListRow from './EquipoListRow';
+import './Equipos.css';
 import {
     Table,
     TableBody,
@@ -11,9 +11,9 @@ import {
 
 
 
-const IngresoList = ({ingresos, deleteIngreso}) => (
+const EquipoList = ({ingresos, deleteIngreso}) => (
    <div className="ingresos-home">
-       <h2>Ingresos</h2>
+       <h2>Equipos Copa del rey</h2>
 
        <br/>
 
@@ -23,14 +23,14 @@ const IngresoList = ({ingresos, deleteIngreso}) => (
            <TableHeader>
                <TableRow>
                    <TableHeaderColumn>ID</TableHeaderColumn>
-                   <TableHeaderColumn>Cantidad</TableHeaderColumn>
-                   <TableHeaderColumn>Descripción</TableHeaderColumn>
+                   <TableHeaderColumn>Nombre</TableHeaderColumn>
+                   <TableHeaderColumn>Logo-ruta</TableHeaderColumn>
                </TableRow>
            </TableHeader>
            <TableBody>
                {
                    ingresos.map( ingreso => {
-                       return <IngresoListRow key={ingreso.key} ingreso={ingreso} />
+                       return <EquipoListRow key={ingreso.key} ingreso={ingreso} />
                    })
                }
            </TableBody>
@@ -39,4 +39,4 @@ const IngresoList = ({ingresos, deleteIngreso}) => (
    </div>
 );
 
-export default IngresoList;
+export default EquipoList;

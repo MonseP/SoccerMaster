@@ -9,7 +9,7 @@ export function loadEquipoSuccess(equipos){
 }
 
 export function createEquipoSuccess(equipo){
-    return {type: "SAVE_NEW_EQUIPO_SUCCESS", equipo}
+    return { type: "SAVE_NEW_EQUIPO_SUCCESS", equipo };
 }
 
 export function updateEquipoSuccess(equipo){
@@ -22,13 +22,15 @@ export function deleteEquipoSuccess(equipo) {
 
 
 export function loadEquipos(){
-    return function (dispatch) {
-        return firebase.database().ref('torneos/equipos')
+    return function(dispatch){
+
+        return firebase.database().ref('torneodos/equipos')
             .once('value')
             .then(s => {
                 let array = [];
                 for (let k in s.val()){
                     let c = s.val()[k];
+                    //console.log(s.val()[k]);
                     c['key'] = k;
                     array.push(c);
                 }
@@ -39,25 +41,30 @@ export function loadEquipos(){
     };
 }
 
-
 export function saveEquipo(equipo){
     return function (dispatch, getState){
+        // Despachamos la accion para el loader
+        //dispatch(beginAjaxCall());
         if(equipo.key){
             let updates = {};
             updates['/equipos/' + equipo.key] = equipo;
             return firebase.database().ref().update(updates)
                 .then(()=>{
+                    //console.log('chet');
                     return dispatch(updateEquipoSuccess(equipo));
                 });
         }else{
-            return firebase.database().ref('torneos/equipos')
+            return firebase.database().ref('torneodos/equipos')
                 .push(equipo)
                 .then(s =>{
+                    //console.log(s.key);
 
                     equipo['key'] = s.key;
+                    //console.log('nuevo chet');
                     return dispatch(createEquipoSuccess(equipo));
                 })
                 .catch(error => {
+                    //dispatch(ajaxCallError());
                     throw(error);
                 });
         }
@@ -66,12 +73,11 @@ export function saveEquipo(equipo){
     };
 }
 
-
 export function deleteEquipo(equipo) {
     return function (dispatch, getState) {
         debugger;
         let updates = {};
-        updates['/equipos/' + equipo.key] = null;
+        updates['torneodos/equipos/' + equipo.key] = null;
         return firebase.database().ref().update(updates)
             .then(r=>{
                 dispatch(deleteEquipoSuccess(equipo));
@@ -82,3 +88,4 @@ export function deleteEquipo(equipo) {
 
     }
 }
+

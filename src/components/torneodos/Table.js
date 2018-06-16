@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import QueueAnim from 'rc-queue-anim';
-import { Table, Button, Popconfirm, message } from 'antd';
+import { Table, Icon, Popconfirm, message, Button } from 'antd';
 import moment from 'moment';
-import 'moment/locale/es';
 import {Link} from 'react-router-dom';
+import 'moment/locale/es';
 import firebase from '../../firebase';
 
 
@@ -14,6 +14,7 @@ const columns = [
         key: "names",
 
     },
+
 
 
     {
@@ -29,7 +30,7 @@ const columns = [
             <span>
       <span className="ant-divider" />
       <Popconfirm onConfirm={()=>borrarItem(record)} title="¿Estás seguro？" okText="Sí" cancelText="No">
-    <a style={{color:'#35a375'}}>Borrar</a>
+  <a style={{color:'#35a375'}}>Borrar</a>
   </Popconfirm>
 
       <span className="ant-divider" />
@@ -37,6 +38,7 @@ const columns = [
     </span>
         ),
     },
+
     {
         title: 'Equipos del torneo',
         key: 'action',
@@ -44,8 +46,8 @@ const columns = [
             <span>
       <span className="ant-divider" />
 
-      <Link to={"/equipos-america"}>
-          <a style={{color:'#389349'}}>Ver equipos</a>
+      <Link to={"/equiposamerica"}>
+       <a style={{color:'#389349'}}>Ver equipos</a>
 
               </Link>
 
@@ -60,7 +62,8 @@ const columns = [
     }
 
 
-    ];
+
+];
 
 const borrarItem = (r) => {
     console.log(r);

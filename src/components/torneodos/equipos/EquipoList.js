@@ -1,6 +1,6 @@
 import React from 'react';
-import GastoListRow from './GastoListRow';
-import './Gastos.css';
+import EquipoListRow from './EquipoListRow';
+import './Equipos.css';
 import {
     Table,
     TableBody,
@@ -11,13 +11,11 @@ import {
 
 
 
-const GastoList = ({gastos, deleteGasto}) => (
-   <div className='gastos'>
-       <h2>Gastos</h2>
+const EquipoList = ({equipos, deleteEquipo}) => (
+   <div className="ingresos-home">
+       <h2>Equipos Copa América</h2>
 
        <br/>
-
-
 
        <br/>
 
@@ -25,14 +23,14 @@ const GastoList = ({gastos, deleteGasto}) => (
            <TableHeader>
                <TableRow>
                    <TableHeaderColumn>ID</TableHeaderColumn>
-                   <TableHeaderColumn>Cantidad</TableHeaderColumn>
-                   <TableHeaderColumn>Descripción</TableHeaderColumn>
+                   <TableHeaderColumn>Nombre</TableHeaderColumn>
+                   <TableHeaderColumn>Logo-ruta</TableHeaderColumn>
                </TableRow>
            </TableHeader>
            <TableBody>
                {
-                   gastos.map( gasto => {
-                       return <GastoListRow key={gasto.key} gasto={gasto} />
+                   equipos.map( equipo => {
+                       return <EquipoListRow key={equipo.key} equipo={equipo} />
                    })
                }
            </TableBody>
@@ -41,4 +39,4 @@ const GastoList = ({gastos, deleteGasto}) => (
    </div>
 );
 
-export default GastoList;
+export default EquipoList;

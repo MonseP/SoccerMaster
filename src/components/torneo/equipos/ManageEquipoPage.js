@@ -1,10 +1,8 @@
-/**
- * Created by BlisS on 22/03/17.
- */
+
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as ingresoActions from '../../actions/ingresoActions';
+import * as ingresoActions from '../../../actions/ingresoActions';
 import ListaDetalle from "./ListaDetalle";
 import { FlatButton, FloatingActionButton} from 'material-ui';
 import toastr from 'toastr';
@@ -15,7 +13,7 @@ const buttonStyle = {
     margin: '20px 0px'
 };
 
-class ManageIngresoPage extends React.Component {
+class ManageEquipoPage extends React.Component {
 
     state = {
         edit: false,
@@ -26,13 +24,13 @@ class ManageIngresoPage extends React.Component {
 
     deleteItem = () => {
         debugger;
-        const response = window.confirm('Seguro');
+        const response = window.confirm('¿Está seguro?');
         if(response){
             const ingresoForRemoving = Object.assign({},this.props.ingreso);
             this.props.actions.deleteIngreso(ingresoForRemoving)
                 .then( r => {
                     toastr.success('Se ha eliminado');
-                    this.props.history.push('/ingresos');
+                    this.props.history.push('/equipos-rey');
                 }).catch( e => {
                     console.log(e);
             });
@@ -114,7 +112,7 @@ class ManageIngresoPage extends React.Component {
                         <FlatButton
                             label="Regresar"
                             primary={true}
-                            onClick={()=>this.props.history.push('/ingresos')}
+                            onClick={()=>this.props.history.push('/equipos-rey')}
                             style={buttonStyle}
                         />
                     </div>
@@ -142,34 +140,11 @@ class ManageIngresoPage extends React.Component {
                 </FloatingActionButton>
 
 
-                {/*<FlatButton*/}
-                    {/*label="Eliminar"*/}
-                    {/*primary={true}*/}
-                    {/*onClick={this.deleteItem}/>*/}
-
-                {/*<Dialog*/}
-                    {/*contentStyle={{width:350}}*/}
-                    {/*title="Editar Ingreso"*/}
-                    {/*actions={this.actions}*/}
-                    {/*modal={false}*/}
-                    {/*open={this.state.openForm}*/}
-                    {/*onRequestClose={this.closeForm}>*/}
-                    {/*<IngresoForm*/}
-                        {/*ingreso={this.state.ingresoMutable}*/}
-                        {/*allTipos={this.props.tipos}*/}
-                        {/*onChange={this.updateIngresoState}*/}
-                        {/*onChangeTipo={this.handleChangeTipo}*/}
-                    {/*/>*/}
-
-                {/*</Dialog>*/}
             </div>
         );
     }
 }
 
-//ManageIngresoPage.propTypes = {
-    // myProp: PropTypes.string.isRequired
-//};
 
 const fabstyle = {
     position:'fixed',
@@ -208,4 +183,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageIngresoPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageEquipoPage);

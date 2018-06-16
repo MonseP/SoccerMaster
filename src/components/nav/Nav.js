@@ -170,23 +170,8 @@ class Nav extends Component {
                         leftIcon={<Resumen />} />
                 </NavLink>
 
-                <NavLink
-                    onClick={this.props.toogleDrawer}
-                    activeClassName="selected"
-                    activeStyle={{
-                        fontWeight: 'bold',
-                    }}
-                    //isActive={()=>this.oddEvent(1)}
-                    exact
-                    to="/signup">
-                    <MenuItem
-                        style={active?styles.active:null}
-                        primaryText="Registrar Usuario"
-                        leftIcon={<Invent />} />
 
-                </NavLink>
-
-                <NavLink
+                   <NavLink
                     onClick={this.props.toogleDrawer}
                     activeClassName="selected"
                     activeStyle={{
@@ -206,7 +191,29 @@ class Nav extends Component {
 
 
 
-                */}
+                     */}
+
+                <NavLink
+                    onClick={this.props.toogleDrawer}
+                    activeClassName="selected"
+                    activeStyle={{
+                        fontWeight: 'bold',
+                    }}
+                    //isActive={()=>this.oddEvent(1)}
+                    exact
+                    to="/signup">
+                    <MenuItem
+                        style={active?styles.active:null}
+                        primaryText="Registrar Usuario"
+                        leftIcon={<Invent />} />
+
+                </NavLink>
+
+
+
+
+
+
             </Drawer>
         );
     }

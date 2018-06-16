@@ -6,7 +6,8 @@ import './Registro.css';
 import * as usuarioActions from '../../actions/usuarioActions';
 
 const containerStyle = {
-    height: '85vh'
+    height: '85vh',
+    width:'100%'
 };
 
 class SignUpContainer extends Component {
@@ -46,7 +47,7 @@ class SignUpContainer extends Component {
         const {newUser} = this.state;
         return (
             <div className="registro" style={containerStyle}>
-              <h2>Registro</h2>
+              <h2>REGISTRO DE UN NUEVO USUARIO</h2>
 <div className='registro2'> 
                 <SignUpComponent
                     newUser={newUser}
