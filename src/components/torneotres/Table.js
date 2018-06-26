@@ -46,7 +46,7 @@ const columns = [
             <span>
       <span className="ant-divider" />
 
-      <Link to={"/equipos-rey"}>
+      <Link to={"/equipos-oro"}>
        <a style={{color:'#389349'}}>Ver equipos</a>
 
               </Link>
@@ -63,12 +63,12 @@ const columns = [
 
 
 
-    ];
+];
 
 const borrarItem = (r) => {
     console.log(r);
     let updates = {};
-    updates['/torneouno/' + r.key] = null;
+    updates['/torneotres/' + r.key] = null;
     firebase.database().ref().update(updates);
     message.warning("Se ha borrado la liga");
 

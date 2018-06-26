@@ -5,9 +5,11 @@
   "dependencies": {
     "antd": "^2.13.0",
     "chart.js": "^2.6.0",
+    "file-saver": "^1.3.8",
     "firebase": "^4.3.0",
     "font-awesome": "^4.7.0",
     "fontawesome": "^4.7.2",
+    "html-pdf": "^2.2.0",
     "material-ui": "^0.19.3",
     "owl.carousel": "^2.2.0",
     "rc-queue-anim": "^1.2.2",
@@ -15,8 +17,11 @@
     "react-chartjs-2": "^2.6.2",
     "react-dom": "^16.0.0",
     "react-fontawesome": "^1.6.1",
+    "react-inline-css": "^2.3.1",
     "react-owl-carousel": "^2.2.0",
     "react-owl-carousel2": "^0.3.0",
+    "react-pdf": "^3.0.5",
+    "react-pdf-js": "^4.0.0-alpha.6",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.11",
@@ -36,6 +41,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "react-to-print": "^1.0.20",
     "redux-immutable-state-invariant": "^2.0.0"
   }
 }

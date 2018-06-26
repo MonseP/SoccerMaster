@@ -9,7 +9,7 @@ import firebase from '../../firebase';
 
 const columns = [
     {
-        title: "Nombre de la jornada",
+        title: "Número de la jornada",
         dataIndex: "names",
         key: "names",
 

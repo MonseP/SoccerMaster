@@ -238,9 +238,9 @@ const EquipoForm = (props) => {
             />
 
             <TextField
-                name="medioIzquierda"
+                name="medioIzquierdo"
 
-                value={equipo.medioIzquierda}
+                value={equipo.medioIzquierdo}
                 onChange={onChange}
                 type="text"
                 hintText="Nombre del jugador"
@@ -278,9 +278,9 @@ const EquipoForm = (props) => {
                 floatingLabelText="Interior Derecho"
             />
             <TextField
-                name="interiorDnumerp"
+                name="interiorDnumero"
 
-                value={equipo.interiorDnumerp}
+                value={equipo.interiorDnumero}
                 onChange={onChange}
                 type="number"
                 hintText="Número de camiseta"

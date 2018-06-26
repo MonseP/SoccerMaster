@@ -7,18 +7,19 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import {message} from 'antd';
 import TorneoForm from "./TorneoForm";
+import  './Torneo.css';
 
-class TableContainer3 extends Component{
+class TableContainer6 extends Component{
 
     state = {
         data:[],
         loading:true,
         openForm:false,
-        newItem:{ captura:''}
+        newItem:{captura:''}
     };
 
     componentWillMount(){
-        firebase.database().ref('torneodos')
+        firebase.database().ref('torneoseis')
             .on('child_added',
                 s=>{
                     const {data} = this.state;
@@ -27,7 +28,7 @@ class TableContainer3 extends Component{
                     data.push(item);
                     this.setState({data, loading:false});
                 });
-        firebase.database().ref('torneodos')
+        firebase.database().ref('torneoseis')
             .on('child_removed',
                 s=>{
                     const {data} = this.state;
@@ -56,6 +57,7 @@ class TableContainer3 extends Component{
     };
 
 
+
     handleDate = (n, date) => {
         console.log(date);
         //const fecha = Date.parse(date);
@@ -72,7 +74,7 @@ class TableContainer3 extends Component{
         newItem['captura'] = Date.now();
         newItem["fecha"] = Date.parse(newItem["fecha"]);
         this.closeForm();
-        firebase.database().ref('torneodos')
+        firebase.database().ref('torneoseis')
             .push(newItem)
             .then(r=>message.success("Se ha guardado con éxito"))
             .catch(e=>message.error("Algo malo pasó, no se pudo guardar"));
@@ -90,7 +92,7 @@ class TableContainer3 extends Component{
         const {data, loading, openForm, newItem} = this.state;
         return(
             <div className='torneo'>
-                <h2>Torneo Copa América</h2>
+                <h2>Torneo Copa Argentina</h2>
                 <ShowTable loading={loading} data={data} />
                 <FloatingActionButton
                     style={styles.float}
@@ -134,4 +136,4 @@ const styles = {
 };
 
 
-export default TableContainer3;
+export default TableContainer6;

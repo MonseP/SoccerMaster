@@ -7,9 +7,13 @@ class TorneoHome extends Component {
         return (
 
 
-            <div className={"torneo-home"}>
+            <div>
+
 
                       <TorneoUno/>
+
+
+
 
 
                         </div>

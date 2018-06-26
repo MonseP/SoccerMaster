@@ -3,7 +3,7 @@ import {TextField,RaisedButton} from 'material-ui';
 import {NavLink} from "react-router-dom";
 
 const styleButton = {
-    margin: '30px 0px 10px 20px ',
+    margin: '30px 0px 10px 40px ',
     display: 'block'
 };
 
@@ -16,7 +16,7 @@ const textFieldStyle = {
 };
 
 const formStyle = {
-    width: '30vw',
+    width: '33vw',
     textAlign: 'center',
     backgroundColor:'white',
 

@@ -1,12 +1,20 @@
 import React from 'react';
 import './Equipos.css';
+import {Form, Input, Upload, Icon, message,} from 'antd';
 import {MenuItem, TextField, DatePicker} from "material-ui";
+import Fotos from "./Fotos";
+import FotosHome from "./FotosHome";
+
+
 
 
 
 
 
 const EquipoForm = (props) => {
+
+
+
 
 
     console.log(props.ingreso);
@@ -23,8 +31,10 @@ const EquipoForm = (props) => {
             return <MenuItem key={valor} primaryText={tipo.text} value={valor}/>
         })
     }
-    const {ingreso, onChange, onChangeTipo, onChangeDate, controlledDate} = props;
+
+    const {ingreso, onChange, onChangeTipo, onChangeDate, controlledDate,} = props;
     console.log(ingreso);
+
 
 
 
@@ -60,13 +70,8 @@ const EquipoForm = (props) => {
                 type="number"
             />
             <p>Logo del equipo</p>
-                 <input
-                  name="logo"
-                value={ingreso.logo}
-                onChange={onChange}
-                type="file"
-                style={{margin: "10px 0"}}
-            />
+
+         <FotosHome/>
 
 
             <hr className="line"/>
@@ -238,9 +243,9 @@ const EquipoForm = (props) => {
             />
 
             <TextField
-                name="medioIzquierda"
+                name="medioIzquierdo"
 
-                value={ingreso.medioIzquierda}
+                value={ingreso.medioIzquierdo}
                 onChange={onChange}
                 type="text"
                 hintText="Nombre del jugador"
@@ -278,9 +283,9 @@ const EquipoForm = (props) => {
                 floatingLabelText="Interior Derecho"
             />
             <TextField
-                name="interiorDnumerp"
+                name="interiorDnumero"
 
-                value={ingreso.interiorDnumerp}
+                value={ingreso.interiorDnumero}
                 onChange={onChange}
                 type="number"
                 hintText="Número de camiseta"

@@ -68,7 +68,7 @@ const columns = [
 const borrarItem = (r) => {
     console.log(r);
     let updates = {};
-    updates['/torneouno/' + r.key] = null;
+    updates['/torneonueve/' + r.key] = null;
     firebase.database().ref().update(updates);
     message.warning("Se ha borrado la liga");
 

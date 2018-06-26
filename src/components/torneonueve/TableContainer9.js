@@ -9,7 +9,7 @@ import {message} from 'antd';
 import TorneoForm from "./TorneoForm";
 import  './Torneo.css';
 
-class TableContainer2 extends Component{
+class TableContainer9 extends Component{
 
     state = {
         data:[],
@@ -19,7 +19,7 @@ class TableContainer2 extends Component{
     };
 
     componentWillMount(){
-        firebase.database().ref('torneouno')
+        firebase.database().ref('torneonueve')
             .on('child_added',
                 s=>{
                     const {data} = this.state;
@@ -28,7 +28,7 @@ class TableContainer2 extends Component{
                     data.push(item);
                     this.setState({data, loading:false});
                 });
-        firebase.database().ref('torneouno')
+        firebase.database().ref('torneonueve')
             .on('child_removed',
                 s=>{
                     const {data} = this.state;
@@ -74,7 +74,7 @@ class TableContainer2 extends Component{
         newItem['captura'] = Date.now();
         newItem["fecha"] = Date.parse(newItem["fecha"]);
         this.closeForm();
-        firebase.database().ref('torneouno')
+        firebase.database().ref('torneonueve')
             .push(newItem)
             .then(r=>message.success("Se ha guardado con éxito"))
             .catch(e=>message.error("Algo malo pasó, no se pudo guardar"));
@@ -92,7 +92,7 @@ class TableContainer2 extends Component{
         const {data, loading, openForm, newItem} = this.state;
         return(
             <div className='torneo'>
-                <h2>Torneo Copa del Rey</h2>
+                <h2>Torneo Copa Femenil</h2>
                 <ShowTable loading={loading} data={data} />
                 <FloatingActionButton
                     style={styles.float}
@@ -136,4 +136,4 @@ const styles = {
 };
 
 
-export default TableContainer2;
+export default TableContainer9;

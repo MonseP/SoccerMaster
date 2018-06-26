@@ -15,6 +15,13 @@
     background-image: url("https://images.pexels.com/photos/149356/pexels-photo-149356.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
     background-position: center;
     background-size: cover;
+    height: 145vh;
+}
+
+.torneo-home{
+    background-image: url("https://images.pexels.com/photos/149356/pexels-photo-149356.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
+    background-position: center;
+    background-size: cover;
     height: 100vh;
 }
 .titulo-imagen{
