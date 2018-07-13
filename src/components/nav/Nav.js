@@ -5,6 +5,7 @@ import NoteAdd from 'material-ui/svg-icons/action/note-add';
 import Resumen from 'material-ui/svg-icons/editor/pie-chart';
 import System from 'material-ui/svg-icons/action/credit-card';
 import Cart from 'material-ui/svg-icons/editor/monetization-on';
+import People from 'material-ui/svg-icons/social/people';
 import Face from 'material-ui/svg-icons/action/face';
 import Invent from 'material-ui/svg-icons/social/person-add';
 import {NavLink} from 'react-router-dom';
@@ -207,6 +208,40 @@ class Nav extends Component {
                         primaryText="Registrar Usuario"
                         leftIcon={<Invent />} />
 
+                </NavLink>
+
+                <NavLink
+                    onClick={this.props.toogleDrawer}
+                    activeClassName="selected"
+                    activeStyle={{
+                        fontWeight: 'bold',
+                    }}
+                    //isActive={()=>this.oddEvent(1)}
+                    to="/pdf">
+                    <MenuItem
+                        style={active?styles.active:null}
+                        primaryText="Credenciales"
+                        leftIcon={<Face />}
+
+                        //onClick={()=>this.changeName('Ingresos')}
+                    />
+
+                </NavLink>
+
+
+                <NavLink
+                    onClick={this.props.toogleDrawer}
+                    activeClassName="selected"
+                    activeStyle={{
+                        fontWeight: 'bold',
+                    }}
+                    //isActive={()=>this.oddEvent(1)}
+                    exact
+                    to="/goleadores">
+                    <MenuItem
+                        style={active?styles.active:null}
+                        primaryText="Goleadores"
+                        leftIcon={<People />} />
                 </NavLink>
 
 

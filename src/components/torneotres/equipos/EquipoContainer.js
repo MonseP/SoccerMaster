@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
-import ShowTable from './Table';
-import firebase from '../../firebase';
+import ShowTable from './TableEquipo';
+import firebase from '../../../firebase';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import {message} from 'antd';
-import TorneoForm from "./TorneoForm";
-import  './Torneo.css';
+import EquipoForm from "./EquipoForm";
+import Aviso from "./Aviso";
+import  './Equipo.css';
 
-class TableContainer3 extends Component{
+
+
+
+class EquipoContainer extends Component{
 
     state = {
         data:[],
@@ -19,7 +23,7 @@ class TableContainer3 extends Component{
     };
 
     componentWillMount(){
-        firebase.database().ref('torneotres')
+        firebase.database().ref('/torneotres/equipos/teamliber/')
             .on('child_added',
                 s=>{
                     const {data} = this.state;
@@ -28,7 +32,7 @@ class TableContainer3 extends Component{
                     data.push(item);
                     this.setState({data, loading:false});
                 });
-        firebase.database().ref('torneotres')
+        firebase.database().ref('/torneotres/equipos/teamliber/')
             .on('child_removed',
                 s=>{
                     const {data} = this.state;
@@ -57,9 +61,6 @@ class TableContainer3 extends Component{
     };
 
 
-
-
-
     handleDate = (n, date) => {
         console.log(date);
         //const fecha = Date.parse(date);
@@ -76,7 +77,7 @@ class TableContainer3 extends Component{
         newItem['captura'] = Date.now();
         newItem["fecha"] = Date.parse(newItem["fecha"]);
         this.closeForm();
-        firebase.database().ref('torneotres')
+        firebase.database().ref('/torneotres/equipos/teamliber/')
             .push(newItem)
             .then(r=>message.success("Se ha guardado con éxito"))
             .catch(e=>message.error("Algo malo pasó, no se pudo guardar"));
@@ -95,7 +96,10 @@ class TableContainer3 extends Component{
         return(
             <div className='torneo'>
                 <h2>Torneo Copa de Oro</h2>
+                <Aviso className='aviso'/>
                 <ShowTable loading={loading} data={data} />
+
+
                 <FloatingActionButton
                     style={styles.float}
                     onClick={this.openForm}
@@ -104,7 +108,7 @@ class TableContainer3 extends Component{
                 </FloatingActionButton>
 
                 <Dialog
-                    contentStyle={{width:350}}
+                    contentStyle={{width:520}}
                     title="Agregar nuevo"
                     actions={actions}
                     modal={false}
@@ -112,12 +116,12 @@ class TableContainer3 extends Component{
                     onRequestClose={this.closeForm}
                 >
 
-                    <TorneoForm
+                    <EquipoForm
                         handleDate={this.handleDate}
                         newItem={newItem}
-                        handleSub={this.handleSub}
-                        handleTipo={this.handleTipo}
-                        onChange={this.onChange} />
+                        onChange={this.onChange}  className={"formu"}/>
+
+
 
                 </Dialog>
 
@@ -138,4 +142,4 @@ const styles = {
 };
 
 
-export default TableContainer3;
+export default EquipoContainer;

@@ -25,16 +25,17 @@ import TableContainer9 from "./components/torneonueve/TableContainer9";
 import PrivateRoute from "./PrivateRoute";
 import  DocumentHome from "./components/document/MyApp";
 
-
-
-
-
-
+import  GoleadorContainer from './components/goleador/GoleadorContainer';
 
 //equipos rutas
 
-import Equipos from './components/torneo/equipos/EquipoContainer';
-import ManageEquipoPage from './components/torneo/equipos/ManageEquipoPage';
+import EquipoTorneotres from "./components/torneotres/equipos/EquipoContainer";
+
+
+
+
+//
+
 
 import Equipo from './components/torneodos/equipos/EquipoContainer';
 import Dos from './components/torneodos/equipos/ManageEquipoPage';
@@ -52,17 +53,22 @@ import Dos from './components/torneodos/equipos/ManageEquipoPage';
 
 const Routes = () => (
     <Switch>
+
+
+
+
         <Route exact path="/" component={LoginContainer} />
 
 
          <Route path="/login" component={LoginContainer} />
         <Route path="/signup" component={SignUpContainer} />
-        <PrivateRoute path="/caja" component={Caja} />
+        <Route path="/caja" component={Caja} />
         <PrivateRoute path="/resumen" component={Resumen} />
         <PrivateRoute path="/clientes" component={Cliente} />
         <PrivateRoute path="/torneos" component={TorneoHome} />
         <Route path="/politicas" component={Politicas} />
-        <Route path="/pdf" component={DocumentHome} />
+        <Route path="/goleadores" component={GoleadorContainer} />
+        <PrivateRoute path="/pdf" component={DocumentHome} />
 
 
 
@@ -79,17 +85,18 @@ const Routes = () => (
         <PrivateRoute path="/torneo-fem" component={TableContainer9} />
 
 
-        <PrivateRoute  exact path="/equipos-rey" component={Equipos} />
-        <PrivateRoute path="/equipos-rey/:key" component={ManageEquipoPage} />
+
+
+        {/* Prueba y borrar */}
+
+
 
         <PrivateRoute exact path="/equiposamerica" component={Equipo} />
         <PrivateRoute path="/equiposamerica/:key" component={Dos} />
 
 
-
-
-
-        {/* Aquí empieza equipos rutas */}
+        {/* Aquí empieza Equipos con los jugadores dentro rutas */}
+        <Route path="/equipos-oro" component={EquipoTorneotres} />
 
 
 

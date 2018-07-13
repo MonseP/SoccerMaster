@@ -1,0 +1,39 @@
+.formu{
+    width:700px;
+    background: red;
+}
+.formulario
+{
+    max-width:450px;
+    height: 900px;
+    overflow: scroll;
+}
+
+.formulario-dos
+{
+    max-width:450px;
+    height:1200px;
+    overflow: scroll;
+}
+
+
+.line-equipos{
+    margin: 15px 0;
+    width:300px;
+    height:2px;
+    border: none;
+    background-color: #a5c5a8;
+}
+
+.aviso{
+font-size:14px;
+background-color:#44bf71;
+margin: 12px;
+height: 50px;
+width: 110px;
+border-radius: 3px;
+border: none;
+    color: white;
+
+}
+

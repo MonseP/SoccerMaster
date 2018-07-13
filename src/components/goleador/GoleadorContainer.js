@@ -6,20 +6,23 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import {message} from 'antd';
-import TorneoForm from "./TorneoForm";
-import  './Torneo.css';
+import GoleadorForm from "./GoleadorForm";
+import './Goleador.css';
 
-class TableContainer3 extends Component{
+
+
+class GoleadorContainer extends Component{
 
     state = {
         data:[],
         loading:true,
         openForm:false,
-        newItem:{captura:''}
+        newItem:{captura:'', puntos:'', tipo:''}
     };
 
+
     componentWillMount(){
-        firebase.database().ref('torneotres')
+        firebase.database().ref('goleadores')
             .on('child_added',
                 s=>{
                     const {data} = this.state;
@@ -28,7 +31,7 @@ class TableContainer3 extends Component{
                     data.push(item);
                     this.setState({data, loading:false});
                 });
-        firebase.database().ref('torneotres')
+        firebase.database().ref('goleadores')
             .on('child_removed',
                 s=>{
                     const {data} = this.state;
@@ -57,6 +60,13 @@ class TableContainer3 extends Component{
     };
 
 
+    handleTipo = (event, index, value) => {
+        let newItem = this.state.newItem;
+        newItem['tipo'] = value;
+        this.setState({newItem});
+        console.log(this.state.newItem)
+    };
+
 
 
 
@@ -76,7 +86,7 @@ class TableContainer3 extends Component{
         newItem['captura'] = Date.now();
         newItem["fecha"] = Date.parse(newItem["fecha"]);
         this.closeForm();
-        firebase.database().ref('torneotres')
+        firebase.database().ref('goleadores')
             .push(newItem)
             .then(r=>message.success("Se ha guardado con éxito"))
             .catch(e=>message.error("Algo malo pasó, no se pudo guardar"));
@@ -93,8 +103,8 @@ class TableContainer3 extends Component{
         ];
         const {data, loading, openForm, newItem} = this.state;
         return(
-            <div className='torneo'>
-                <h2>Torneo Copa de Oro</h2>
+            <div className='goleador'>
+                <h2>Goleadores</h2>
                 <ShowTable loading={loading} data={data} />
                 <FloatingActionButton
                     style={styles.float}
@@ -112,10 +122,9 @@ class TableContainer3 extends Component{
                     onRequestClose={this.closeForm}
                 >
 
-                    <TorneoForm
+                    <GoleadorForm
                         handleDate={this.handleDate}
                         newItem={newItem}
-                        handleSub={this.handleSub}
                         handleTipo={this.handleTipo}
                         onChange={this.onChange} />
 
@@ -138,4 +147,4 @@ const styles = {
 };
 
 
-export default TableContainer3;
+export default GoleadorContainer;
